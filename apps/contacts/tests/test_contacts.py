@@ -26,7 +26,7 @@ def contact(db, user):
     return Contact.objects.create(
         name='John Doe',
         email='john@example.com',
-        phone_number='998901234560',
+        phone_number='+998901234560',
         user=user
     )
 
@@ -40,7 +40,7 @@ def tag(db, contact):
 
 def test_create_contact(authenticated_client):
     url = reverse('contact-create')
-    data = {"name": "Alice", "email": "alice@example.com", "phone_number": "998901234569"}
+    data = {"name": "Alice", "email": "alice@example.com", "phone_number": "+998901234569"}
     response = authenticated_client.post(url, data)
     assert response.status_code == status.HTTP_201_CREATED
     assert response.data['name'] == "Alice"
