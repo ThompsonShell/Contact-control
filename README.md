@@ -43,6 +43,10 @@ docker compose exec web python manage.py collectstatic --noinput
 ```bash
 docker compose exec web bash
 ```
+- Create superuser:
+```bash
+python manage.py createsuperuser
+```
 
 ## Troubleshooting (short)
 - Init SQL not applied → existing DB volume: `docker-compose down -v` then bring up again.
